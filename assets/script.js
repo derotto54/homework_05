@@ -18,7 +18,7 @@ for (var i = 0; i < timeArray.length; i++) {
     }
 }
 
-//Promts user input for schedule and saves to local storage
+//Prompts user input for schedule and saves to local storage
 var myAlert = function () {
     var attribute = this.getAttribute('id')
     console.log('myAlert')
@@ -26,15 +26,36 @@ var myAlert = function () {
     if (myEventText != null) {
         localStorage.setItem(attribute, myEventText)
     }
+    refreshSchedule()
 }
 
-//Listens fo clicks and specifies the element clicked
+//Listens for clicks and specifies the element clicked
 for (var i = 0; i < timeBlock.length; i++) {
     timeBlock[i].addEventListener('click', myAlert)
 }
 
-//Read the Local Storage and set the schedule
-for (var i = 0; i < timeArray.length; i++) {
-    var e = document.getElementById(timeArray[i])
-    e.appendChild.innerHTML = localStorage.getItem(timeArray[i])
+var setSchedule = function() {
+    for (var i = 0; i < timeArray.length; i++) {
+        var e = document.getElementById(timeArray[i])
+        e.appendChild.innerHTML = localStorage.getItem(timeArray[i])
+    }
 }
+
+var refreshSchedule = function() {
+    for (var i = 0; i < timeArray.length; i++) { 
+        var scheduleEl = document.createElement('h3')
+        scheduleEl.classList = 'mb-1 scheduleText'
+        var scheduleTextEl = document.createElement('span')
+        scheduleTextEl.textContent = localStorage.getItem(timeArray[i])
+        scheduleEl.appendChild(scheduleTextEl)
+        document.getElementById(timeArray[i]).appendChild(scheduleEl)
+        setSchedule()
+        var list = document.getElementById(timeArray[i])
+        list.removeChild(list.childNodes[4])
+    }
+
+//Read the Local Storage and set the schedule
+
+
+}
+refreshSchedule()
