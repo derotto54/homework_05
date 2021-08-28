@@ -38,17 +38,3 @@ for (var i = 0; i < timeArray.length; i++) {
     var e = document.getElementById(timeArray[i])
     e.appendChild.innerHTML = localStorage.getItem(timeArray[i])
 }
-
-     
-
-//     var myFunction = function() {
-//         var attribute = this.getAttribute('id')
-//     }
-// //     console.log(timeBlock)
-//     timeBlock.addEventListener('click',alert)
-// //}
-// if (curTime > slotTime) {
-// document.getElementById('01').className += ' list-group-item-secondary'
-// //console.log(e)
-// // 'class="secondary"'
-// }
