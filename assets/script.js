@@ -34,6 +34,8 @@ for (var i = 0; i < timeBlock.length; i++) {
     timeBlock[i].addEventListener('click', myAlert)
 }
 
+//Read the Local Storage and set the schedule
+
 var setSchedule = function() {
     for (var i = 0; i < timeArray.length; i++) {
         var e = document.getElementById(timeArray[i])
@@ -41,9 +43,10 @@ var setSchedule = function() {
     }
 }
 
+//Add the users schedule to the DOM 
 var refreshSchedule = function() {
     for (var i = 0; i < timeArray.length; i++) { 
-        var scheduleEl = document.createElement('h3')
+        var scheduleEl = document.createElement('h5')
         scheduleEl.classList = 'mb-1 scheduleText'
         var scheduleTextEl = document.createElement('span')
         scheduleTextEl.textContent = localStorage.getItem(timeArray[i])
@@ -53,9 +56,5 @@ var refreshSchedule = function() {
         var list = document.getElementById(timeArray[i])
         list.removeChild(list.childNodes[4])
     }
-
-//Read the Local Storage and set the schedule
-
-
 }
 refreshSchedule()
